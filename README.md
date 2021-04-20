@@ -10,3 +10,11 @@ Mac:
 
 Windows:
 `Also not there yet`
+
+# Website
+You can view the website <a href="https://dotter.cubicinc.ga">Here</a>
+But its currently a `404`
+
+# Lua
+The **Dotter** project
+is a compiler around the <a href="http://luvit.io">Luvit.io</a> project
