@@ -9,7 +9,9 @@ Mac:
 `Some install command that isn't there yet`
 
 Windows:
-`PowerShell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/Dot-lua/Dotter/0.0.3/Installers/Install.ps1'))"` Or click <a href="https://downgit.github.io/#/home?url=https://github.com/Dot-lua/Dotter/blob/main/Installers/Install-Portable.bat">Here</a> to download it
+```PowerShell -NoProfile -ExecutionPolicy unrestricted -Command 
+"[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex 
+((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/Dot-lua/Dotter/0.0.3/Installers/Install.ps1'))"```
 
 # Website
 You can view the website <a href="https://dotter.cubicinc.ga">Here</a>
