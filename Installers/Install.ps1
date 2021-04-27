@@ -1,4 +1,3 @@
-
 $Folder = './Dotter'
 if (Test-Path -Path $Folder) {
     Write-Host "Dotter folder already exists remove it and try again" -ForegroundColor Red
@@ -16,13 +15,11 @@ if ($response -eq 'y') {
     exit
 }
 
-$Tag = "0.0.1"
+$Tag = "0.0.2"
 
 wget -O Installer.zip "https://github.com/Dot-lua/Dotter/archive/refs/tags/$Tag.zip"
 
 Expand-Archive -LiteralPath ./Installer.Zip -DestinationPath ./
-
-sleep 1
 
 echo "Removing ZIP"
 rm Installer.zip
@@ -30,20 +27,25 @@ rm Installer.zip
 echo "Renaming"
 mv "Dotter-$Tag/" Dotter-Installer
 
-sleep 1
-
 mv ./Dotter-Installer/Dotter ./Dotter
+mv ./Dotter-Installer/Launchers/Dotter.bat ./Dotter.bat
+mv ./Dotter-Installer/Launchers/Dotter.sh ./Dotter.sh
 
-sleep 1
+rm Dotter-Installer -Recurse
 
-echo "Done"
+cd Dotter
 
-echo "cd up"
-#cd ..
+mkdir Envoirment
+cd Envoirment
+mkdir Luvit
+mkdir deps
+cd Luvit
+
+
+PowerShell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://github.com/luvit/lit/raw/master/get-lit.ps1'))"
 
 echo "also done!"
 
-sleep 2
+clear
 
-echo "starting"
-
+echo "Done installing Dotter"
