@@ -9,9 +9,7 @@ Mac:
 `Some install command that isn't there yet`
 
 Windows:
-```PowerShell -NoProfile -ExecutionPolicy unrestricted -Command 
-"[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex 
-((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/Dot-lua/Dotter/0.0.3/Installers/Install.ps1'))"```
+`PowerShell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/Dot-lua/Dotter/0.0.3/Installers/Install.ps1'))"`
 
 # Website
 You can view the website <a href="https://dotter.cubicinc.ga">Here</a>
