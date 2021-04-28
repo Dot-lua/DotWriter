@@ -15,7 +15,7 @@ if ($response -eq 'y') {
     exit
 }
 
-$Tag = "0.0.2"
+$Tag = [Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/Dot-lua/Dotter/main/Scripts/Functions/GetLatest.ps1'))
 
 wget -O Installer.zip "https://github.com/Dot-lua/Dotter/archive/refs/tags/$Tag.zip"
 
@@ -68,5 +68,4 @@ clear
 echo "Done installing Dotter"
 echo ""
 
-cmd
 ./Dotter.bat
