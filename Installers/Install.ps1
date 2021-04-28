@@ -35,6 +35,14 @@ rm Dotter-Installer -Recurse
 
 cd Dotter
 
+mkdir Output
+cd Output
+mkdir Cache
+mkdir Libraries
+mkdir Data
+mkdir Build
+cd ..
+
 mkdir Envoirment
 cd Envoirment
 mkdir Luvit
