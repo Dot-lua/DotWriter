@@ -28,8 +28,8 @@ echo "Renaming"
 mv "Dotter-$Tag/" Dotter-Installer
 
 mv ./Dotter-Installer/Dotter ./Dotter
-mv ./Dotter-Installer/Launchers/Dotter.bat ./Dotter.bat
-mv ./Dotter-Installer/Launchers/Dotter.sh ./Dotter.sh
+mv ./Dotter-Installer/Scripts/Launchers/Dotter.bat ./Dotter.bat
+mv ./Dotter-Installer/Scripts/Launchers/Dotter.sh ./Dotter.sh
 
 rm Dotter-Installer -Recurse
 
@@ -68,5 +68,5 @@ clear
 echo "Done installing Dotter"
 echo ""
 
-pwd
+cmd
 ./Dotter.bat
