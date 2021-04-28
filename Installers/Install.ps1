@@ -43,7 +43,7 @@ mkdir Data
 mkdir Build
 cd ..
 
-mkdir run
+mkdir Run
 
 mkdir Envoirment
 cd Envoirment
