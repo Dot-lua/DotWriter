@@ -43,6 +43,8 @@ mkdir Data
 mkdir Build
 cd ..
 
+mkdir run
+
 mkdir Envoirment
 cd Envoirment
 mkdir Luvit
