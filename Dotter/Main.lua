@@ -11,3 +11,5 @@ _G.Tasks = {
 if not Args[1] then
     Tasks.Help(Args)
 end
+
+print(require("./Libs/Github-Lib.lua").GetRemoteVersion())
