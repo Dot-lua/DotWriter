@@ -44,21 +44,22 @@ mkdir Build
 cd ..
 
 mkdir Run
+mkdir deps
 
 mkdir Envoirment
 cd Envoirment
 mkdir Luvit
-mkdir deps
 cd Luvit
 
 
 PowerShell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://github.com/luvit/lit/raw/master/get-lit.ps1'))"
 
 cd ..
-
-./Luvit/lit install creationix/coro-http
-
 cd ..
+
+./Envoirment/Luvit/lit install creationix/coro-http
+
+
 
 mkdir Config
 
