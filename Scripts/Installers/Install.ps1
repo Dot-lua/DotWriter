@@ -59,6 +59,15 @@ cd ..
 ./Luvit/lit install creationix/coro-http
 
 cd ..
+
+mkdir Config
+
+$Value = ""
+$Value += '{"Tag-Version": "'
+$Value += $Tag
+$Value += '", "_comment": "DONT CHANGE THIS!!!"}'
+Set-Content -Path ./Config/VersionData.json -Value $Value
+
 cd ..
 
 echo "also done!"
