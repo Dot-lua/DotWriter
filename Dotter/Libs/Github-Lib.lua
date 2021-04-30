@@ -1,6 +1,6 @@
 local Lib = {}
 local Json = require("json")
-local Http = require("../Envoirment/deps/coro-http.lua")
+local Http = require("coro-http")
 
 local Repro = "https://api.github.com/repos/Dot-lua/Dotter/releases"
 
