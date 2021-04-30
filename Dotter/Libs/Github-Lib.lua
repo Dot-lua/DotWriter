@@ -7,8 +7,6 @@ local Repro = "https://api.github.com/repos/Dot-lua/Dotter/releases"
 local FS = require('fs')
 local Read, Write, ReadDir = FS.readFileSync, FS.writeFileSync, FS.readdirSync
 
-_G.RemoteVersion = RemoteVersion or GetRemote()
-
 function GetRemote()
     local WebRequest, WebBody
     local Running = true
