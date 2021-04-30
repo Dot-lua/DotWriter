@@ -79,4 +79,6 @@ clear
 echo "Done installing Dotter"
 echo ""
 
+sleep 3
+
 ./Dotter.bat
