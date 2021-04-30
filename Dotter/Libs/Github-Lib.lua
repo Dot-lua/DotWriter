@@ -17,16 +17,20 @@ end
 function Lib.GetRemoteVersion()
     
     local WebRequest, WebBody
+    local Running = true
+    local Times = 0
+    
+    WebRequest, WebBody = Http.request("GET", Repro, {{"User-Agent", "Dotter Compiler"}})
 
-    local CT = coroutine.wrap(function ()
-        WebRequest, WebBody = Http.request("GET", Repro)
-    end)()
+    local Decode = Json.decode(WebBody)
+    return Decode[1].tag_name
+end
 
-    print(coroutine.status(CT))
+function Lib.IsLatest()
+    local ThisVersion = Lib.GetVersion()
+    local ThatVersion = Lib.GetRemoteVersion()
 
-    local Decode = Json.decode(WebData)
-
-    return Decode["Tag-Version"]
+    return ThisVersion == ThatVersion
 end
 
 return Lib
