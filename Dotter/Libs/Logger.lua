@@ -12,25 +12,19 @@ local CYAN    = 36
 local WHITE   = 37
 
 local config = {
-	{'[ERROR]  ', RED},
+	{'[ERROR] ', RED},
 	{'[WARNING]', YELLOW},
 	{'[INFO]   ', GREEN},
 	{'[DEBUG]  ', CYAN},
 }
+
+local Logger = {}
 
 do -- parse config
 	local bold = 1
 	for _, v in ipairs(config) do
 		v[2] = format('\27[%i;%im%s\27[0m', bold, v[2], v[1])
 	end
-end
-
-local Logger = {}
-
-function Logger:__init(level, dateTime, file)
-	self._level = level
-	self._dateTime = dateTime
-	self._file = file and openSync(file, 'a')
 end
 
 --[=[
@@ -44,18 +38,34 @@ initialization, this logs a message to stdout as defined by Luvit's `process`
 module and to a file if one was provided on initialization. The `msg, ...` pair
 is formatted according to `string.format` and returned if the message is logged.
 ]=]
-function Logger:log(level, msg, ...)
+function Logger.Log(level, msg, ...)
 
 	local tag = config[level]
 	if not tag then return end
 
 	msg = format(msg, ...)
 
-	local d = date(self._dateTime)
+	local d = date("%Y-%m-%d %H:%M:%S")
 	stdout:write(format('%s | %s | %s\n', d, tag[2], msg))
 
 	return msg
 
+end
+
+function Logger.Error(Msg, ...)
+	Logger.Log(1, Msg, ... or "")
+end
+
+function Logger.Warn(Msg, ...)
+	Logger.Log(2, Msg, ... or "")
+end
+
+function Logger.Info(Msg, ...)
+	Logger.Log(1, Msg, ... or "")
+end
+
+function Logger.Debug(Msg, ...)
+	Logger.Log(1, Msg, ... or "")
 end
 
 return Logger
