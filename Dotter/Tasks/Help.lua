@@ -1,11 +1,11 @@
 return function (Args)
     
-    print("ERROR - You gave no command to the dotter!")
-    print("Usage: `./Dotter [Task] [Options]`")
-    print("You can use the following commands:")
+    Logger.Error("ERROR - You gave no command to the dotter!")
+    Logger.Error("Usage: `./Dotter [Task] [Options]`")
+    Logger.Error("You can use the following commands:")
 
     for i, v in pairs(Tasks) do
-        print("- " .. i)
+        Logger.Error("- " .. i)
     end
 
 end
