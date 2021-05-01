@@ -12,7 +12,7 @@ local CYAN    = 36
 local WHITE   = 37
 
 local config = {
-	{'[ERROR] ', RED},
+	{'[ERROR]  ', RED},
 	{'[WARNING]', YELLOW},
 	{'[INFO]   ', GREEN},
 	{'[DEBUG]  ', CYAN},
