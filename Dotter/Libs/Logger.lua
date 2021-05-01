@@ -1,3 +1,12 @@
+
+--[[
+	Hello there, reader of this file.
+	i just want to note to you:
+	i reworked the discordia logger from
+	https://github.com/SinisterRectus/Discordia/blob/master/libs/utils/Logger.lua
+	-- Thanks
+]]
+
 local date = os.date
 local format = string.format
 local stdout = _G.process.stdout.handle
@@ -27,17 +36,7 @@ do -- parse config
 	end
 end
 
---[=[
-@m log
-@p level number
-@p msg string
-@p ... *
-@r string
-@d If the provided level is less than or equal to the log level set on
-initialization, this logs a message to stdout as defined by Luvit's `process`
-module and to a file if one was provided on initialization. The `msg, ...` pair
-is formatted according to `string.format` and returned if the message is logged.
-]=]
+
 function Logger.Log(level, msg, ...)
 
 	local tag = config[level]
