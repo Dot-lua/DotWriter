@@ -60,11 +60,11 @@ function Logger.Warn(Msg, ...)
 end
 
 function Logger.Info(Msg, ...)
-	Logger.Log(1, Msg, ... or "")
+	Logger.Log(3, Msg, ... or "")
 end
 
 function Logger.Debug(Msg, ...)
-	Logger.Log(1, Msg, ... or "")
+	Logger.Log(4, Msg, ... or "")
 end
 
 return Logger
