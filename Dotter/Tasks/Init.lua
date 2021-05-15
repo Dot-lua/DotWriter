@@ -1,6 +1,4 @@
 return function (Args)
-   
-    local FS = require("fs")
 
     if FS.existsSync("./src") then
         Logger.Error("The folder 'src' does already exist")
@@ -11,44 +9,25 @@ return function (Args)
         return false
     end
 
-    --os.execute("PowerShell -NoProfile -ExecutionPolicy unrestricted -Command \"[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/Dot-lua/Dotter/main/Scripts/Functions/DownloadTemplate.ps1'))\"")
+    --local Command = "PowerShell -NoProfile -ExecutionPolicy unrestricted -Command \"[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/Dot-lua/Dotter/main/Scripts/Functions/DownloadTemplate.ps1'))\""
 
-    local Command = "PowerShell -NoProfile -ExecutionPolicy unrestricted -Command \"[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/Dot-lua/Dotter/main/Scripts/Functions/DownloadTemplate.ps1'))\""
+    local CommandWindows = "PowerShell -NoProfile -ExecutionPolicy unrestricted -File ./Dotter/Scripts/DownloadTemplate.ps1"
 
-    --print(os.execute(Command))
-
-    local Commands = {
-        Windows = {
-            "wget -O DotterTemplate.zip https://github.com/Dot-lua/Dotter-Project-Template/archive/refs/heads/main.zip",
-            "Expand-Archive -LiteralPath ./DotterTemplate.Zip -DestinationPath ./",
-            "rm DotterTemplate.zip",
-            "mv \"./Dotter-Project-Template-main\" Project-Template",
-            "mv \"./Project-Template/src\" \"./src\"",
-            "rm Project-Template -Recurse",
-            "pwd"
-        }
-    }
-
-    local File = assert(io.popen(Command))
-    local Out = File:read('*a')
-    File:close()
-    --print(Out)
-
-    --[[
     if WorkingOS == "Windows" then
-        Logger.Info("Getting ready to download!")
-        
-        for i, v in pairs(Commands.Windows) do
-            Logger.Info("Running command " .. i .. " " .. v)
-            --print(os.execute())
+        local Handle = io.popen(CommandWindows)
 
-            local Command = "cmd /c PowerShell -Command '" .. v .. "'"
-
-            local File = assert(io.popen(Command))
-            local Out = File:read('*a')
-            File:close()
-            print(Out)
+        for Line in Handle:lines() do
+            Logger.Info(Line)
         end
-    end]]
+
+        Handle:close()
+
+        print()
+
+        Logger.Info("Done, you now have a 'src' folder, but you might want to change some names!")
+        Logger.Info("Check the template repro at the github organisation!")
+
+        BuildHelper.Complete()
+    end
 
 end
