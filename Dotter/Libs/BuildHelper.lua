@@ -44,8 +44,10 @@ function BuildHelper.Log(level, msg, ...)
 
 	msg = format(msg, ...)
 
+	Watch:stop()
+
 	local d = date("%Y-%m-%d %H:%M:%S")
-	stdout:write(format('%s %s\n', tag[2], msg))
+	stdout:write(format('%s %s %s\n', tag[2], Watch:getTime():toString(), msg))
 
 	return msg
 
