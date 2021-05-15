@@ -1,0 +1,6 @@
+{
+    "_Comment1": "used for the output name as followed: '[BaseName]-[Version].dua'.",
+    "_Comment2": "If version is equal to 0.0.0 it will not be used",
+    "BaseName": "Project",
+    "Version": "0.0.0"
+}
