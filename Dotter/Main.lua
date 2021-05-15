@@ -12,6 +12,10 @@ coroutine.wrap(function ()
     _G.GitLib = require("Github-Lib")
     _G.Logger = require("Logger")
     _G.BuildHelper = require("BuildHelper")
+    _G.FS = require("fs")
+    _G.Json = require("json")
+    _G.Watch = require("discordia").Stopwatch()
+    Watch:start()
 
     if not GitLib.IsLatest() then
         Logger.Warn("You are running an older version of Dotter!")
