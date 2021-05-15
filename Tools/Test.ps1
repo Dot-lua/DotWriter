@@ -31,6 +31,7 @@ cd ..
 
 ./Envoirment/Luvit/lit install creationix/coro-http
 ./Envoirment/Luvit/lit install luvit/secure-socket
+./Envoirment/Luvit/lit install SinisterRectus/discordia
 
 
 $Value = ""
