@@ -20,6 +20,9 @@ mkdir deps
 
 mkdir Envoirment
 cd Envoirment
+
+Copy-Item "C:\Program Files (x86)\Resource Hacker" -Recurse -Destination ./ResourceHacker
+
 mkdir Luvit
 cd Luvit
 
