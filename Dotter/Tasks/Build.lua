@@ -20,7 +20,7 @@ return function (Args)
         ArchiveName = Data.BaseName .. Data.Version
     end
 
-    local CommandWindows = "PowerShell -NoProfile -ExecutionPolicy unrestricted -File ./Dotter/Scripts/Build.ps1 -outputname" .. ArchiveName
+    local CommandWindows = "PowerShell -NoProfile -ExecutionPolicy unrestricted -File ./Dotter/Scripts/Build.ps1 " .. ArchiveName
 
     if WorkingOS == "Windows" then
         local Handle = io.popen(CommandWindows)
