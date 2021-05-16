@@ -48,6 +48,20 @@ mkdir deps
 
 mkdir Envoirment
 cd Envoirment
+
+mkdir ResourceHacker
+cd ResourceHacker
+
+wget -O ResourceHacker.zip "http://www.angusj.com/resourcehacker/resource_hacker.zip"
+Expand-Archive -LiteralPath ./ResourceHacker.Zip -DestinationPath ./
+echo "Removing ZIP"
+rm ResourceHacker.zip
+
+
+mv ./ResourceHacker/* ./
+
+cd ..
+
 mkdir Luvit
 cd Luvit
 
