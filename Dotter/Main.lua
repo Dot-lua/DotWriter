@@ -28,6 +28,7 @@ coroutine.wrap(function ()
         run = require("./Tasks/Run.lua"),
         build = require("./Tasks/Build.lua"),
         help = require("./Tasks/Help.lua"),
+        executeable = require("./Tasks/Executeable.lua"),
         init = require("./Tasks/Init.lua")
     }
     
