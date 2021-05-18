@@ -4,6 +4,8 @@ cp -rv ../Dotter ./
 cp ../Scripts/Launchers/Dotter.bat ./
 cp ../Scripts/Launchers/Dotter.sh ./
 
+chmod +x ./Dotter.sh
+
 cd Dotter
 
 
