@@ -17,10 +17,10 @@ Write-Output "Cloning src folder..."
 Copy-Item ./src -Recurse -Destination ./Dotter/Output/Data
 
 Write-Output "Unpacking main folder to src..."
-Remove-Item ./Dotter/Output/Data/src/main/* ./Dotter/Output/Data/src/
+Move-Item ./Dotter/Output/Data/src/main/* ./Dotter/Output/Data/src/
 
 Write-Output "Unpacking lua folder"
-Remove-Item ./Dotter/Output/Data/src/lua/* ./Dotter/Output/Data/src/
+Move-Item ./Dotter/Output/Data/src/lua/* ./Dotter/Output/Data/src/
 
 Write-Output "Removing lua and main folder"
 Remove-Item ./Dotter/Output/Data/src/lua/ -Recurse
