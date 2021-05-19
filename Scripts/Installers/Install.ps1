@@ -2,74 +2,76 @@ $Folder = './Dotter'
 if (Test-Path -Path $Folder) {
     Write-Host "Dotter folder already exists remove it and try again" -ForegroundColor Red
     exit
-} else {
-    echo "Downloading"
+}
+else {
+    Write-Output "Downloading"
 }
 
 $msg = 'Do you want to Install dotter to this folder and download luvit with it (http://luvit.io - Envoirment)? [Y/N]'
 $response = Read-Host -Prompt $msg
 if ($response -eq 'y') {
-    echo "okay"
-} else {
+    Write-Host "okay"
+}
+else {
     Write-Host "Install canceled" -ForegroundColor Red
     exit
 }
 
-$Tag = [Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/Dot-lua/Dotter/main/Scripts/Functions/GetLatest.ps1'))
+$Tag = [Net.ServicePointManager]::SecurityProtocol = 'Tls12'; Invoke-Expression ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/Dot-lua/Dotter/main/Scripts/Functions/GetLatest.ps1'))
 
-wget -O Installer.zip "https://github.com/Dot-lua/Dotter/archive/refs/tags/$Tag.zip"
+Invoke-WebRequest -O Installer.zip "https://github.com/Dot-lua/Dotter/archive/refs/tags/$Tag.zip"
 
 Expand-Archive -LiteralPath ./Installer.Zip -DestinationPath ./
 
-echo "Removing ZIP"
-rm Installer.zip
+Write-Host "Removing ZIP"
+Remove-Item Installer.zip
 
-echo "Renaming"
-mv "Dotter-$Tag/" Dotter-Installer
+Write-Host "Renaming"
+Move-Item "Dotter-$Tag/" Dotter-Installer
 
-mv ./Dotter-Installer/Dotter ./Dotter
-mv ./Dotter-Installer/Scripts/Launchers/Dotter.bat ./Dotter.bat
-mv ./Dotter-Installer/Scripts/Launchers/Dotter.sh ./Dotter.sh
+Move-Item ./Dotter-Installer/Dotter ./Dotter
+Move-Item ./Dotter-Installer/Scripts/Launchers/Dotter.bat ./Dotter.bat
+Move-Item ./Dotter-Installer/Scripts/Launchers/Dotter.sh ./Dotter.sh
 
-rm Dotter-Installer -Recurse
+Remove-Item Dotter-Installer -Recurse
 
-cd Dotter
+Set-Location Dotter
 
 mkdir Output
-cd Output
+Set-Location Output
 mkdir Cache
 mkdir Libraries
 mkdir Data
 mkdir Build
-cd ..
+Set-Location ..
 
 mkdir Run
 mkdir deps
 
 mkdir Envoirment
-cd Envoirment
+Set-Location Envoirment
 
 mkdir ResourceHacker
-cd ResourceHacker
+Set-Location ResourceHacker
 
-wget -O ResourceHacker.zip "http://www.angusj.com/resourcehacker/resource_hacker.zip"
+Invoke-WebRequest -O ResourceHacker.zip "http://www.angusj.com/resourcehacker/resource_hacker.zip"
 Expand-Archive -LiteralPath ./ResourceHacker.Zip -DestinationPath ./
-echo "Removing ZIP"
-rm ResourceHacker.zip
+Write-Host "Removing ZIP"
+Remove-Item ResourceHacker.zip
 
 
-mv ./ResourceHacker/* ./
+Move-Item ./ResourceHacker/* ./
 
-cd ..
+Set-Location ..
 
 mkdir Luvit
-cd Luvit
+Set-Location Luvit
 
 
 PowerShell -NoProfile -ExecutionPolicy unrestricted -Command "[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://github.com/luvit/lit/raw/master/get-lit.ps1'))"
 
-cd ..
-cd ..
+Set-Location ..
+Set-Location ..
 
 ./Envoirment/Luvit/lit install creationix/coro-http
 ./Envoirment/Luvit/lit install luvit/secure-socket
@@ -85,15 +87,15 @@ $Value += $Tag
 $Value += '", "_comment": "DONT CHANGE THIS!!!"}'
 Set-Content -Path ./Config/VersionData.json -Value $Value
 
-cd ..
+Set-Location ..
 
-echo "also done!"
+Write-Host "also done!"
 
-clear
+Clear-Host
 
-echo "Done installing Dotter"
-echo ""
+Write-Host "Done installing Dotter"
+Write-Host ""
 
-sleep 3
+Start-Sleep 3
 
 ./Dotter.bat

@@ -1,28 +1,28 @@
-echo "Getting ready for download..."
+Write-Output "Getting ready for download..."
 
-sleep 1
+Start-Sleep 1
 
-echo "Downloading"
+Write-Output "Downloading"
 
-wget -O DotterTemplate.zip "https://github.com/Dot-lua/Dotter-Project-Template/archive/refs/heads/main.zip"
+Invoke-WebRequest -O DotterTemplate.zip "https://github.com/Dot-lua/Dotter-Project-Template/archive/refs/heads/main.zip"
 
-sleep 1
+Start-Sleep 1
 
-echo "Unpacking"
+Write-Output "Unpacking"
 
 Expand-Archive -LiteralPath ./DotterTemplate.Zip -DestinationPath ./
 
-echo "Removing ZIP"
-rm DotterTemplate.zip
+Write-Output "Removing ZIP"
+Remove-Item DotterTemplate.zip
 
-echo "Renaming Dotter-Project-Template-main to Project-Template"
-mv "./Dotter-Project-Template-main" Project-Template
+Write-Output "Renaming Dotter-Project-Template-main to Project-Template"
+Remove-Item "./Dotter-Project-Template-main" Project-Template
 
-echo "Creating src folder"
-mv "./Project-Template/src" "./src"
+Write-Output "Creating src folder"
+Remove-Item "./Project-Template/src" "./src"
 
-echo "Cleaning..."
-rm Project-Template -Recurse
+Write-Output "Cleaning..."
+Remove-Item Project-Template -Recurse
 
-sleep 1
-echo "Done!"
+Start-Sleep 1
+Write-Output "Done!"

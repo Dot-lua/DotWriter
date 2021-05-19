@@ -1,5 +1,4 @@
 $repo = "Dot-lua/Dotter"
-$file = "CodeFormatter.zip"
 
 $releases = "https://api.github.com/repos/$repo/releases"
 
