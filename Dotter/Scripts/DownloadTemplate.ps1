@@ -16,10 +16,10 @@ Write-Output "Removing ZIP"
 Remove-Item DotterTemplate.zip
 
 Write-Output "Renaming Dotter-Project-Template-main to Project-Template"
-Remove-Item "./Dotter-Project-Template-main" Project-Template
+Move-Item "./Dotter-Project-Template-main" Project-Template
 
 Write-Output "Creating src folder"
-Remove-Item "./Project-Template/src" "./src"
+Move-Item "./Project-Template/src" "./src"
 
 Write-Output "Cleaning..."
 Remove-Item Project-Template -Recurse
