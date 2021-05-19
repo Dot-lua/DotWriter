@@ -3,8 +3,8 @@ Class=IEXPRESS
 SEDVersion=3
 [Options]
 PackagePurpose=InstallApp
-ShowInstallProgramWindow=1
-HideExtractAnimation=0
+ShowInstallProgramWindow=0
+HideExtractAnimation=1
 UseLongFileName=0
 InsideCompressed=0
 CAB_FixedSize=0
@@ -33,5 +33,3 @@ UserQuietInstCmd=
 FILE0="Rickroll.ps1"
 [SourceFiles]
 SourceFiles0=C:\Users\Huiswerk\Desktop\Rickroll\
-[SourceFiles0]
-%FILE0%=
