@@ -6,6 +6,9 @@ cp ../Scripts/Launchers/Dotter.sh ./
 
 chmod +x ./Dotter.sh
 
+chmod +x /Dotter/Scripts/Build.sh
+chmod +x /Dotter/Scripts/DownloadTemplate.sh
+
 cd Dotter
 
 
