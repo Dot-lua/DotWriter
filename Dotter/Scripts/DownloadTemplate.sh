@@ -10,7 +10,7 @@ sleep 1
 
 echo "Unpacking"
 
-unzip ./DotterTemplate.zip
+unzip -q ./DotterTemplate.zip
 
 echo "Removing ZIP"
 rm DotterTemplate.zip
