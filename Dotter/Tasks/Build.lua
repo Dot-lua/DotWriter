@@ -21,19 +21,24 @@ return function (Args)
     end
 
     local CommandWindows = "PowerShell -NoProfile -ExecutionPolicy unrestricted -File ./Dotter/Scripts/Build.ps1 " .. ArchiveName
+    local CommandMac = "sh ./Dotter/Scripts/Build.sh " .. ArchiveName 
+
+    local Handle
 
     if WorkingOS == "Windows" then
-        local Handle = io.popen(CommandWindows)
-
-        for Line in Handle:lines() do
-            Logger.Info(Line)
-        end
-
-        Handle:close()
-
-        print()
-
-        BuildHelper.Complete()
+        Handle = io.popen(CommandWindows)
+    elseif WorkingOS == "Mac" then
+        --FS.chmodSync(CommandMac, 744)
+        Handle = io.popen(CommandMac)
     end
+
+    for Line in Handle:lines() do
+        Logger.Info(Line)
+    end
+
+    Handle:close()
+
+    print()
+    BuildHelper.Complete()
 
 end
