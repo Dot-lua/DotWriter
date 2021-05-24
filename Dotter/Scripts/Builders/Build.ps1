@@ -4,14 +4,6 @@ $output = $args[0]
 Write-Output "Generating output to $output.dua"
 Start-Sleep 1
 
-Write-Output "Cleaning output folder.."
-Remove-Item ./Dotter/Output/ -Recurse
-mkdir ./Dotter/Output/ > $null
-mkdir ./Dotter/Output/Cache > $null
-mkdir ./Dotter/Output/Libraries > $null 
-mkdir ./Dotter/Output/Data > $null 
-mkdir ./Dotter/Output/Build > $null
-
 
 Write-Output "Cloning src folder..."
 Copy-Item ./src -Recurse -Destination ./Dotter/Output/Data
