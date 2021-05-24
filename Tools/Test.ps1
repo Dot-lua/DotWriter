@@ -23,6 +23,8 @@ Set-Location Envoirment
 Copy-Item "C:\Program Files (x86)\Resource Hacker" -Recurse -Destination ./ResourceHacker
 
 Copy-Item ../../../Tools/Envoirment/Luvit -Recurse -Destination ./
+Copy-Item ../../../Tools/Envoirment/ffmpeg -Recurse -Destination ./
+Copy-Item ../../../Tools/Envoirment/upx -Recurse -Destination ./
 
 Set-Location ..
 Set-Location ..
