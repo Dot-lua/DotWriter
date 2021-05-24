@@ -11,8 +11,8 @@ return function (Args)
 
     --local Command = "PowerShell -NoProfile -ExecutionPolicy unrestricted -Command \"[Net.ServicePointManager]::SecurityProtocol = 'Tls12'; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/Dot-lua/Dotter/main/Scripts/Functions/DownloadTemplate.ps1'))\""
 
-    local CommandWindows = "PowerShell -NoProfile -ExecutionPolicy unrestricted -File ./Dotter/Scripts/DownloadTemplate.ps1"
-    local CommandMac = "sh ./Dotter/Scripts/DownloadTemplate.sh"
+    local CommandWindows = "PowerShell -NoProfile -ExecutionPolicy unrestricted -File ./Dotter/Scripts/Init/DownloadTemplate.ps1"
+    local CommandMac = "sh ./Dotter/Scripts/Init/DownloadTemplate.sh"
 
     local Handle
 
