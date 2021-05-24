@@ -20,20 +20,49 @@ return function (Args)
         ArchiveName = Data.BaseName .. Data.Version
     end
 
-    local CommandWindows = "PowerShell -NoProfile -ExecutionPolicy unrestricted -File ./Dotter/Scripts/Executeable.ps1 " .. ArchiveName
+    local PathLib = require("path")
+    local CurrentPath = PathLib.getRoot() .. PathLib.relative(PathLib.getRoot(), "./")
+    --print(CurrentPath)
+
+    local CommandWindows = "PowerShell -NoProfile -ExecutionPolicy unrestricted -File ./Dotter/Scripts/Executeable/Executeable.ps1 " .. ArchiveName
+
+    local Handle
+
+    require("Clean")()
 
     if WorkingOS == "Windows" then
-        local Handle = io.popen(CommandWindows)
 
-        for Line in Handle:lines() do
-            Logger.Info(Line)
+        local ExeJson = FS.readFileSync("./Dotter/Config/ExeInfo.json")
+        local ExeInfo = Json.decode(ExeJson)
+
+        local ExeData = {
+            "TargetName=" .. CurrentPath .. "\\Dotter\\Output\\Cache\\Out.exe",
+            "FriendlyName=" .. ArchiveName,
+            "AppLaunched=Powershell -ExecutionPolicy unrestricted -File .\\ExeLoader.ps1",
+            "FILE0=\"Exeloader.ps1\"",
+            "FILE1=\"" .. ArchiveName .. ".dua" .. "\"",
+            "[SourceFiles]",
+            "SourceFiles0=" .. CurrentPath .. "\\Dotter\\Scripts\\Loaders\\",
+            "SourceFiles1=" .. CurrentPath .. "\\Dotter\\Output\\Build\\"
+        }
+
+        for i, v in pairs(ExeData) do
+            table.insert(ExeInfo.Data, v)
         end
 
-        Handle:close()
+        local ExeString = table.concat(ExeInfo.Data, "\n")
 
-        print()
+        FS.writeFileSync("./Dotter/Output/Cache/ExeData.sed", ExeString)
 
-        BuildHelper.Complete()
+        Handle = io.popen(CommandWindows)
+    elseif WorkingOS == "Mac" then
+
     end
 
+    for Line in Handle:lines() do
+        Logger.Info(Line)
+    end
+    Handle:close()
+    print()
+    BuildHelper.Complete()
 end
