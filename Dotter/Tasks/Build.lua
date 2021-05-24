@@ -9,6 +9,8 @@ return function (Args)
         return false
     end
 
+    require("Clean")()
+
     local JsonData = FS.readFileSync("./Dotter/Config/Output.json")
     local Data = Json.decode(JsonData)
 
@@ -20,8 +22,8 @@ return function (Args)
         ArchiveName = Data.BaseName .. Data.Version
     end
 
-    local CommandWindows = "PowerShell -NoProfile -ExecutionPolicy unrestricted -File ./Dotter/Scripts/Build.ps1 " .. ArchiveName
-    local CommandMac = "sh ./Dotter/Scripts/Build.sh " .. ArchiveName 
+    local CommandWindows = "PowerShell -NoProfile -ExecutionPolicy unrestricted -File ./Dotter/Scripts/Builders/Build.ps1 " .. ArchiveName
+    local CommandMac = "sh ./Dotter/Scripts/Builders/Build.sh " .. ArchiveName 
 
     local Handle
 
