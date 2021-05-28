@@ -1,7 +1,7 @@
 return function()
 
     local CommandWindows = "PowerShell -NoProfile -ExecutionPolicy unrestricted -File ./Dotter/Scripts/Cleaners/Cleaner.ps1"
-    local CommandMac = "sh ./Dotter/Scripts/Init/DownloadTemplate.sh"
+    local CommandMac = "sh ./Dotter/Scripts/Cleaners/Cleaner.sh"
 
     local Handle
 
