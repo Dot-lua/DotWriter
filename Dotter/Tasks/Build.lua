@@ -30,7 +30,6 @@ return function (Args)
     if WorkingOS == "Windows" then
         Handle = io.popen(CommandWindows)
     elseif WorkingOS == "Mac" then
-        --FS.chmodSync(CommandMac, 744)
         Handle = io.popen(CommandMac)
     end
 
