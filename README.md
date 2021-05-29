@@ -1,6 +1,6 @@
 # Dotter
 
-This is the main wrapper for the dot.lua project
+This is the main compiler for the dot.lua project
 
 # Install
 You can install this by running
