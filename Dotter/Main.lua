@@ -25,7 +25,9 @@ coroutine.wrap(function ()
         Logger.Info("Starting Dotter!")
         Logger.Info("Running version " .. GitLib.GetVersion())
     end
+
     print()
+    
     _G.Tasks = {
         run = require("./Tasks/Run.lua"),
         build = require("./Tasks/Build.lua"),
