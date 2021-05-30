@@ -21,9 +21,11 @@ coroutine.wrap(function ()
         Logger.Warn("You are running an older version of Dotter!")
         Logger.Warn("Reinstall Dotter! - View how to do so at http://Dotter.cubicinc.ga/reinstall")
         Logger.Warn("Your version: " .. GitLib.GetVersion() .. " Remote version: " .. GitLib.GetRemoteVersion())
-        print()
+    else
+        Logger.Info("Starting Dotter!")
+        Logger.Info("Running version " .. GitLib.GetVersion())
     end
-    
+    print()
     _G.Tasks = {
         run = require("./Tasks/Run.lua"),
         build = require("./Tasks/Build.lua"),
