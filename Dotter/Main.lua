@@ -18,7 +18,7 @@ coroutine.wrap(function ()
     Watch:start()
 
     if not GitLib.IsLatest() then
-        Logger.Warn("You are running an older version of DotWriter!")
+        Logger.Warn("You are running an older version of Dotter!")
         Logger.Warn("Reinstall Dotter! - View how to do so at http://Dotter.cubicinc.ga/reinstall")
         Logger.Warn("Your version: " .. GitLib.GetVersion() .. " Remote version: " .. GitLib.GetRemoteVersion())
         print()
