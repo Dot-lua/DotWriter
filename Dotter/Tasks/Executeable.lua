@@ -41,9 +41,11 @@ return function (Args)
             "AppLaunched=Powershell -ExecutionPolicy unrestricted -File .\\ExeLoader.ps1",
             "FILE0=\"Exeloader.ps1\"",
             "FILE1=\"" .. ArchiveName .. ".dua" .. "\"",
+            "FILE2=\"Icon.ico\"",
             "[SourceFiles]",
             "SourceFiles0=" .. CurrentPath .. "\\Dotter\\Scripts\\Loaders\\",
-            "SourceFiles1=" .. CurrentPath .. "\\Dotter\\Output\\Build\\"
+            "SourceFiles1=" .. CurrentPath .. "\\Dotter\\Output\\Build\\",
+            "SourceFiles2=" .. CurrentPath .. "\\Dotter\\Output\\Cache\\"
         }
 
         for i, v in pairs(ExeData) do

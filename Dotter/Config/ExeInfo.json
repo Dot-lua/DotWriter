@@ -27,6 +27,8 @@
         "%FILE0%=",
         "[SourceFiles1]",
         "%FILE1%=",
+        "[SourceFiles2]",
+        "%FILE2%=",
         "[Strings]",
         "InstallPrompt=",
         "DisplayLicense=",
