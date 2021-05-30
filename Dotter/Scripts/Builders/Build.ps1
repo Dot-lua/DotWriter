@@ -18,6 +18,8 @@ Write-Output "Removing lua and main folder"
 Remove-Item ./Dotter/Output/Data/src/lua/ -Recurse
 Remove-Item ./Dotter/Output/Data/src/main/ -Recurse
 
+Move-Item ./Dotter/Output/Data/src/resources/package.info.lua ./Dotter/Output/Data/src/
+
 Write-Output "Compressing dua"
 Compress-Archive -path ./Dotter/Output/Data/src/* -DestinationPath ./Dotter/Output/Cache/Out.zip
 Start-Sleep 1
