@@ -19,7 +19,7 @@ rm -R ./Dotter/Output/Data/src/main/
 rm -R ./Dotter/Output/Data/src/src/
 
 echo "Compressing dua"
-zip -R -X ./Dotter/Output/Cache/Out ./Dotter/Output/Data/src/*
+zip -r ./Dotter/Output/Cache/Out ./Dotter/Output/Data/src/
 sleep 1
 
 echo "Cleaning archive"
