@@ -1,6 +1,7 @@
 # Dotter
 
 This is the main compiler for the dot.lua project
+It connects the dots together and makes a .Dua package
 
 # Install
 You can install this by running
