@@ -15,8 +15,8 @@ unzip -q ./DotterTemplate.zip
 echo "Removing ZIP"
 rm DotterTemplate.zip
 
-echo "Renaming Dotter-Project-Template-main to Project-Template"
-mv "./Dotter-Project-Template-main" Project-Template
+echo "Renaming Dua-Template-main to Project-Template"
+mv "./Dua-Template-main" Project-Template
 
 echo "Creating src folder"
 mv "./Project-Template/src" "./src"
