@@ -13,10 +13,14 @@ mv ./Dotter/Output/Data/src/main/* ./Dotter/Output/Data/src/
 echo "Unpacking lua folder"
 mv ./Dotter/Output/Data/src/lua/* ./Dotter/Output/Data/src/
 
+mv ./Dotter/Output/Data/src/resources/package.info.lua ./Dotter/Output/Data/src/
+
 echo "Removing lua and main folder"
 rm -R ./Dotter/Output/Data/src/lua/
 rm -R ./Dotter/Output/Data/src/main/
 rm -R ./Dotter/Output/Data/src/src/
+
+
 
 echo "Compressing dua"
 cd ./Dotter/Output/Data/src/
