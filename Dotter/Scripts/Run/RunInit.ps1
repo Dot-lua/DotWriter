@@ -1,0 +1,1 @@
+cmd /c start "PowerShell -NoProfile -ExecutionPolicy unrestricted -File './Dotter/Scripts/Run.ps1' $args"
