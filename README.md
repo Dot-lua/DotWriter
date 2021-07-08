@@ -3,6 +3,9 @@
 This is the main compiler for the dot.lua project<br>
 It connects the dots together and makes a .Dua package
 
+Archived
+This project is archived Use the merged [TypeWriter](https://github.com/dot-lua/TypeWriter) version instead
+
 # Install
 You can install this by running
 
